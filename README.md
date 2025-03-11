@@ -1,5 +1,14 @@
-# RISC_V
-5-stage pipelined RISC-V processor with instruction fetch, decode, execute, memory access, and write-back stages.
+# 16 bit RISC_V Processor
+This project implements a 16-bit RISC-V-like processor in Verilog. It includes an ALU, instruction memory, program counter, instruction decoder, and control unit. The design is tested using a top-level testbench in Vivado.
+
+## Features
+
+-16-bit Instruction Memory
+-ALU with 15 Operations
+-Program Counter (PC)
+-Instruction Decoder
+-Control Unit
+-Top-Level Integration & Simulation
 
 ## Airthmetic Logic Unit
 

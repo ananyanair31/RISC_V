@@ -3,13 +3,25 @@ This project implements a 16-bit RISC-V-like processor in Verilog. It includes a
 
 ## Features
 
-  -16-bit Instruction Memory
+  1. 16-bit Instruction Memory
+  2. ALU with 15 Operations
+  3. Program Counter (PC)
+  4. Instruction Decoder
+  5. Control Unit
+  6. Top-Level Integration & Simulation
 
-*ALU with 15 Operations
--Program Counter (PC)
--Instruction Decoder
--Control Unit
--Top-Level Integration & Simulation
+## Project Structure
+
+├── src/
+│   ├── alu.v           # Arithmetic Logic Unit
+│   ├── pc.v            # Program Counter
+│   ├── imem.v          # Instruction Memory
+│   ├── decoder.v       # Instruction Decoder
+│   ├── control_unit.v  # Control Unit
+│   ├── cpu_top.v       # Top Module
+│   └── tb_cpu_top.v    # Top-Level Testbench
+├── README.md           # Project Documentation
+└── vivado_project/     # Vivado project files
 
 ## Airthmetic Logic Unit
 

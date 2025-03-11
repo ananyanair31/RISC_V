@@ -13,15 +13,22 @@ This project implements a 16-bit RISC-V-like processor in Verilog. It includes a
 ## Project Structure
 
 ├── src/
+
 │   ├── alu.v           # Arithmetic Logic Unit
+
 │   ├── pc.v            # Program Counter
+
 │   ├── imem.v          # Instruction Memory
+
 │   ├── decoder.v       # Instruction Decoder
+
 │   ├── control_unit.v  # Control Unit
+
 │   ├── cpu_top.v       # Top Module
+
 │   └── tb_cpu_top.v    # Top-Level Testbench
+
 ├── README.md           # Project Documentation
-└── vivado_project/     # Vivado project files
 
 ## Airthmetic Logic Unit
 

@@ -27,7 +27,6 @@ This project implements a 16-bit RISC-V-like processor in Verilog. It includes a
 │   ├── cpu_top.v       # Top Module
 
 │   └── tb_cpu_top.v    # Top-Level Testbench
-
 ├── README.md           # Project Documentation
 
 ## Airthmetic Logic Unit

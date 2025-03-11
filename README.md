@@ -11,14 +11,14 @@ This project implements a 16-bit RISC-V-like processor in Verilog. It includes a
   6. Top-Level Integration & Simulation
 
 ## Project Structure
-
+```
 RISC_V/
 │── alu.v/                # ALU RTL code
 │── iMem.v/          # Instruction Memory
 │── control_unit.v/         # Control Unit
 │── TopModule.v/         # Top Module
 │── testbench.v/         # Testbench
-
+```
 ## Airthmetic Logic Unit
 
 | Opcode | Operation |

@@ -3,7 +3,7 @@ This project implements a 16-bit RISC-V-like processor in Verilog. It includes a
 
 ## Features
 
-*16-bit Instruction Memory
+  -16-bit Instruction Memory
 
 *ALU with 15 Operations
 -Program Counter (PC)

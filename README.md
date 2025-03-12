@@ -16,8 +16,9 @@ RISC_V/
 │── alu.v/                # ALU RTL code
 │── iMem.v/          # Instruction Memory
 │── control_unit.v/         # Control Unit
+│── pc.v/         # Program Counter
 │── TopModule.v/         # Top Module
-│── testbench.v/         # Testbench
+│── topTb.v/         # Testbench
 ```
 ## Airthmetic Logic Unit
 

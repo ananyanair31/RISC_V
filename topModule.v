@@ -1,29 +1,39 @@
 `timescale 1ns / 1ps
 
 module topModule(
-    input [3:0] opCode,
+    input clk, reset,
+    input [15:0] pc_in,
+    input pc_load,
     input [7:0] a,b,
-    output [7:0] alu_out,
+    output [7:0] alu_result,
     output zero
     );
     
-    wire cIn, Sh_LR, rotEn, cmpEn;
+    wire [15:0] pc;
+    wire [15:0] instruction;
     wire [3:0] alu_sel;
     
-    controlUnit control_unit (
-        .opCode(opCode),
-        .Cin(Cin),
-        .Sh_LR(Sh_LR),
-        .rotEn(rotEn),
-        .cmpEn(cmpEn),
-        .aluOp(aluOp)
+    assign addr = pc[3:0];
+    assign alu_sel = instruction[3:0]; 
+    
+    pc pc_inst (
+        .clk(clk),
+        .reset(reset),
+        .pc_in(pc_in),
+        .pc_load(pc_load)
+        ,.pc(pc)
     );
-
+    
+    iMem iMem_inst (
+        .addr(addr),
+        .instruction(instruction)
+    );
+    
     alu alu_inst (
-        .a(A),
-        .b(B),
-        .alu_sel(ALU_OP),
-        .alu_out(Result),
-        .zero(Zero)
-    );
+        .a(a),
+        .b(b),
+        .alu_sel(alu_sel),
+        .alu_result(alu_result),
+        .zero(zero)
+     );
 endmodule

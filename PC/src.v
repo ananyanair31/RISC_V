@@ -1,19 +1,24 @@
 `timescale 1ns / 1ps
 
 module pc(
-    input clk, reset,
-    input [15:0] pc_in,     // new value for jumps/ branches
-    input pc_load,          // load signal
-    output reg [15:0] pc    // current pc value
+    input clk, 
+    input reset,
+    input [31:0] pc,
+    input [31:0] branch_tgt,
+    input [31:0] jump_tgt,
+    input branch_taken,
+    input jump,
+    output reg [31:0] next_pc
     );
     
-    always @(posedge clk or posedge reset)
-    begin 
+    always @(posedge clk or posedge reset) begin
         if (reset)
-            pc <= 16'b0;
-        else if (pc_load)
-            pc <= pc_in;
+            next_pc <= 32'h00000000;
+        else if (jump)
+            next_pc <= jump_tgt;
+        else if (branch_taken) 
+            next_pc <= branch_tgt;
         else 
-            pc <= pc + 1;
+            next_pc <= pc + 4;
     end
 endmodule

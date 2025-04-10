@@ -1,39 +1,29 @@
 `timescale 1ns / 1ps
 
 module topModule(
-    input clk, reset,
-    input [15:0] pc_in,
-    input pc_load,
-    input [7:0] a,b,
-    output [7:0] alu_result,
-    output zero
+    input clk, 
+    input reset,
+    input [31:0] branch_tgt,
+    input [31:0] jump_tgt,
+    input branch_taken,
+    input jump,  
+    output [31:0] pc,  
+    output [31:0] instruction
     );
-    
-    wire [15:0] pc;
-    wire [15:0] instruction;
-    wire [3:0] alu_sel;
-    
-    assign addr = pc[3:0];
-    assign alu_sel = instruction[3:0]; 
     
     pc pc_inst (
         .clk(clk),
         .reset(reset),
-        .pc_in(pc_in),
-        .pc_load(pc_load)
-        ,.pc(pc)
+        .branch_tgt(branch_tgt),
+        .jump_tgt(jump_tgt),
+        .branch_taken(branch_taken),
+        .jump(jump),
+        .pc(pc)
     );
-    
-    iMem iMem_inst (
-        .addr(addr),
+
+    // Instantiate Instruction Memory module
+    instructionMem im (
+        .pc(pc),
         .instruction(instruction)
     );
-    
-    alu alu_inst (
-        .a(a),
-        .b(b),
-        .alu_sel(alu_sel),
-        .alu_result(alu_result),
-        .zero(zero)
-     );
 endmodule

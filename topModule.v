@@ -7,9 +7,20 @@ module topModule(
     input [31:0] jump_tgt,
     input branch_taken,
     input jump,  
-    output [31:0] pc,  
-    output [31:0] instruction
+    input regWrite,
+    input [31:0] writeData,
+    output wire [6:0] opcode,
+    output wire [4:0] rd,
+    output wire [2:0] funct3,
+    output wire [4:0] rs1,
+    output wire [4:0] rs2,
+    output wire [6:0] funct7,
+    output wire [31:0] readData1,
+    output wire [31:0] readData2    
     );
+        
+    wire [31:0] pc;
+    wire [31:0] instruction;
     
     pc pc_inst (
         .clk(clk),
@@ -25,5 +36,26 @@ module topModule(
     instructionMem im (
         .pc(pc),
         .instruction(instruction)
+    );
+    
+    instDecode id (
+        .instruction(instruction),
+        .opcode(opcode),
+        .rd(rd),
+        .funct3(funct3),
+        .rs1(rs1),
+        .rs2(rs2),
+        .funct7(funct7)
+    );
+    
+    regFile reg_inst (
+        .clk(clk),
+        .regWrite(regWrite),
+        .rs1(rs1),
+        .rs2(rs2),
+        .rd(rd),
+        .writeData(writeData),
+        .readData1(readData1), 
+        .readData2(readData2)
     );
 endmodule

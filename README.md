@@ -17,10 +17,16 @@ RISC_V/
 │── iMem.v/          # Instruction Memory
 │── control_unit.v/         # Control Unit
 │── pc.v/         # Program Counter
+│── instDecode.v/         # Instruction Decode
+│── regFile.v/         # Register File
 │── TopModule.v/         # Top Module
 │── topTb.v/         # Testbench
+
 ```
 
 ## Wavefrom
 ![image](https://github.com/user-attachments/assets/b55c8661-4d46-42b5-b129-3b80287f6edd)
+
+![image](https://github.com/user-attachments/assets/22ff9c04-cb01-4d47-b491-293225cf4887)
+
 

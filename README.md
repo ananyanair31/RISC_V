@@ -1,14 +1,17 @@
 # 32 bit RISC_V Processor
-This project implements a 32-bit RISC-V-like processor in Verilog. It includes an ALU, instruction memory, program counter, instruction decoder, and control unit. The design is tested using a top-level testbench in Vivado.
+This project implements a 32-bit RISC-V-like processor in Verilog. It includes an ALU, instruction memory, program counter, instruction decoder, register file and control unit. The design is tested using a top-level verilog testbench in Vivado.
 
-## Features
+## ✅ Features Implemented So Far
 
-  1. 32-bit Instruction Memory
-  2. ALU with 15 Operations
-  3. Program Counter (PC)
-  4. Instruction Decoder
-  5. Control Unit
-  6. Top-Level Integration & Simulation
+- ✅ 32-bit Program Counter (PC)
+- ✅ Instruction Fetch (IF) stage
+- ✅ Instruction Decode (ID) stage
+- ✅ Register File with:
+  - Combinational reads
+  - Clocked writes on rising edge
+- ✅ Instruction memory initialization from file
+- ✅ Support for ALU-type (R-type), I-type instructions
+- ❌ Branch/Jump instructions (in progress or deferred)
 
 ## Project Structure
 ```

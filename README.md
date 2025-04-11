@@ -11,7 +11,7 @@ This project implements a 32-bit RISC-V-like processor in Verilog. It includes a
   - Clocked writes on rising edge
 - ✅ Instruction memory initialization from file
 - ✅ Support for ALU-type (R-type), I-type instructions
-- ❌ Branch/Jump instructions (in progress or deferred)
+- ❌ Branch/Jump instructions (in progress)
 
 ## Project Structure
 ```
@@ -26,6 +26,11 @@ RISC_V/
 │── topTb.v/         # Testbench
 
 ```
+## TODO
+ - Implement ALU 
+ - Support for branch (BEQ, BNE) and jump (JAL, JALR) instructions
+ - Control Unit
+ - Pipeline control
 
 ## Wavefrom
 ![image](https://github.com/user-attachments/assets/b55c8661-4d46-42b5-b129-3b80287f6edd)

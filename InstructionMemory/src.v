@@ -1,13 +1,15 @@
 `timescale 1ns / 1ps
 
 module instructionMem(
+    input clk,
+    input irWrite,
     input [31:0] pc,
-    output wire [31:0] instruction
-    );
+    output reg [31:0] instruction
+);
 
     reg [31:0] memory [0:255];
 
-    // Simulation-only code
+    // Load instructions only in simulation
     `ifndef SYNTHESIS
     initial begin
         $display(">> Instruction Memory Initialized");
@@ -16,9 +18,18 @@ module instructionMem(
     `endif
     
     initial begin
-        memory[0] = 32'hDEADBEEF;
-        memory[1] = 32'hCAFEBABE;
-    end 
+      $readmemh("instructions.mem", memory);
+      $display("Memory contents after load:");
+      $display("memory[0] = %h", memory[0]);
+      $display("memory[1] = %h", memory[1]);
+      $display("memory[2] = %h", memory[2]);
+      $display("memory[3] = %h", memory[3]);
+    end
 
-    assign instruction = memory[pc >> 2];
+    // Instruction fetch on positive clock edge if irWrite is high
+    always @(posedge clk) begin
+        if (irWrite) begin
+            instruction <= memory[pc[9:2]];  // safer bit slicing (pc >> 2)
+        end
+    end
 endmodule
